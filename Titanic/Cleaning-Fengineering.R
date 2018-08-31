@@ -80,9 +80,20 @@ mosaicplot(table(df$FamSize, df$Survived),
            shade = T)
 
 # Feature engineering of passenger cabin $Cabin
+sum(is.na(df$Cabin))
+  
+# columns for deck
+df$Deck <- gsub("[0-9]*", "", df$Cabin)
+# df$Deck <- factor(sapply(df$Cabin, function(x) strsplit(x, NULL)[[1]][1]))
+
 
 # Missingness
 # Embarkment
+head(df$Embarked)
+df[is.na(df$Embarked), ]
+unique(df$Embarked)
+df[c(62,830), ]
+
 # Predictive imputation of Age
 
 
